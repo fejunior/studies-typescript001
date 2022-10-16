@@ -1,20 +1,16 @@
 export class Negociacao {
   private Data: Date;
-  private Quantidade: number;
   private Valor: number;
 
-  constructor(data: Date, quantidade: number, valor: number) {
+  constructor(data: Date, public readonly quantidade: number, valor: number) {
     this.Data = data;
-    this.Quantidade = quantidade;
     this.Valor = valor;
   }
 
-  get data() {
-    return this.Data;
-  }
-
-  get quantidade() {
-    return this.Quantidade;
+  get data(): Date {
+    //Progrmaação defensiva: Garante que o metoso set não seja utilizado para alteração do valor
+    const dataNew = new Date(this.Data.getTime());
+    return dataNew;
   }
 
   get valor() {
