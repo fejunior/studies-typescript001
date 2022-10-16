@@ -1,0 +1,11 @@
+{
+  "compilerOptions": { //Opções para conversão do arquivo TS para JS
+    "outDir": "dist/js", //Diretório onde vai parar o arquivo final
+    "target": "ES6", //Versão do Ecma script a ser copilado
+    "noEmitOnError": true, //Evita de compilar o arquivo com erro
+    "noImplicitAny": true, //Não permite ter atributos tipo Any adotados implicitamente
+  },
+  "include": [ //Arquivos que queremos que leia
+    "app/**/*",
+  ]
+}
