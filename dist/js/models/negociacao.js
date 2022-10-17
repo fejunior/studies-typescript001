@@ -5,11 +5,17 @@ export class Negociacao {
         this.Valor = valor;
     }
     get data() {
-        //Progrmaação defensiva: Garante que o metoso set não seja utilizado para alteração do valor
         const dataNew = new Date(this.Data.getTime());
         return dataNew;
     }
     get valor() {
         return this.Valor;
+    }
+    static criaDe(dataString, quantidadeString, valorString) {
+        const exp = /-/g;
+        const date = new Date(dataString.replace(exp, ","));
+        const quantidade = parseInt(quantidadeString);
+        const valor = parseFloat(valorString);
+        return new Negociacao(date, quantidade, valor);
     }
 }

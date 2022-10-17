@@ -16,4 +16,17 @@ export class Negociacao {
   get valor() {
     return this.Valor;
   }
+
+  public static criaDe(
+    dataString: string,
+    quantidadeString: string,
+    valorString: string
+  ) {
+    const exp = /-/g; //Expressão regular que pega todos os - e o g siginificaglobal
+    const date = new Date(dataString.replace(exp, ",")); //date constri um data colocando ano, mes, dia;
+    const quantidade = parseInt(quantidadeString); //converte para inteiro
+    const valor = parseFloat(valorString); //converte para float
+
+    return new Negociacao(date, quantidade, valor);
+  }
 }
